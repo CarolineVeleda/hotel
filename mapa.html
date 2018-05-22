@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6
+
+
+        
+        });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+
+           
+            <div id="end">
+            var atlantico = new google.maps.Marker({
+                position:{lat:-32.0311802,lng:-52.0961272},
+                map: map
+            });
+            
+            var swan = new google.maps.Marker({
+                position: {lat:-32.029021, lng:-52.099366},
+                map: map
+            });
+
+            var praiacassino = new google.maps.Marker({
+                position: {lat:-32.179522,lng:-52.1670597},
+                map: map
+            });
+
+            var ventosul = new google.maps.Marker({
+                position: {lat:-32.0395759,lng:-52.0973556},
+                map: map
+            });
+            
+            var costadoce = new google.maps.Marker({
+                position: {lat:-32.0489675,lng:-52.1475459},
+                map: map
+            });
+
+            var domlucas = new google.maps.Marker({
+                position: {lat:-32.190294,lng:-52.1637307},
+                map: map
+            });
+
+            var nelson = new google.maps.Marker({
+                position: {lat:-32.188679,lng:-52.1615031},
+                map: map
+            });
+
+            var liraapart = new google.maps.Marker({
+                position: {lat:-32.1821216,lng:-52.163402},
+                map: map
+            });
+
+            var vilamoura = new google.maps.Marker({
+                position: {lat:-32.0328672,lng:-52.1005346},
+                map: map
+            });
+
+            var almanara = new google.maps.Marker({
+                position: {lat:-32.0328672,lng:-52.1005346},
+                map: map
+            });
+            
+            var almanara = new google.maps.Marker({
+                position: {lat:-32.0328672,lng:-52.1005346},
+                map: map
+            });
+
+            var almanara = new google.maps.Marker({
+                position: {lat:-32.0328672,lng:-52.1005346},
+                map: map
+            });
+
+            var talfik = new google.maps.Marker({
+                position: {lat:-32.0312036,lng:-52.1001164},
+                map: map
+            });
+
+            var portorei = new google.maps.Marker({
+                position: {lat:-32.0368786,lng:-52.1072432},
+                map: map
+            });
+
+            var musleh = new google.maps.Marker({
+                position: {lat:-32.038552,lng:-52.1041533},
+                map: map
+            });
+
+            var arpini = new google.maps.Marker({
+                position: {lat:-32.038552,lng:-52.1129081},
+                map: map
+            });
+
+            var gaucho = new google.maps.Marker({
+                position: {lat:-32.0712294,lng:-52.1525623},
+                map: map
+            });           
+
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+        
+
+
+
+
+
+
+
+
+
+         
+        directionsDisplay.setMap(map);
+        var onChangeHandler = function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        };
+        document.getElementById('start').addEventListener('change', onChangeHandler);
+        document.getElementById('end').addEventListener('change', onChangeHandler);
+      }
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        directionsService.route({
+          origin: document.getElementById('start').value,
+          destination: document.getElementById('end').value,
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
+      }
+
+      
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM4CujFeFMgBJR8QvO5vz7Qk1vviev0qU&callback=initMap">
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,11 +4,13 @@
     <title>Place searches</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ 
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        height: 50%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -16,25 +18,29 @@
         margin: 0;
         padding: 0;
       }
+
+      #center{
+        text-align: center;
+      }
+
+      .fonte{
+        
+      }
+
     </style>
     <script>
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
       var map;
       var infowindow;
-
       function initMap() {
         var pyrmont = { lat: -32.0328672, lng: -52.1005346};
-
          
-
         map = new google.maps.Map(document.getElementById('map'), {
           center: pyrmont,
           zoom: 15
         });
-
         infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
@@ -42,15 +48,28 @@
           radius: 500,
           type: ['lodging']
         }, callback);
+        
       }
-
+      vetor=[];
       function callback(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
             createMarker(results[i]);
+            //console.log(results[i]);
+            //console.log("Nome: " + results[i].name + "Endereço: " + results[i].vicinity);
+            vetor.push("<b>" + "Nome: " + "</b>" + results[i].name + "<br>" + "<b>" + "Endereço: " + "</b>" + results[i].vicinity + "<br>" + "<br>");
+            
+            localStorage.nomeHotel=vetor;
+            document.getElementById("listar").innerHTML= localStorage.nomeHotel;
+            //localStorage.adressHotel=["Endereço: " + results[i].vicinity];
+            //document.getElementById("listar").innerHTML+= "Nome: " + results[i].name + '<br>' + "Endereço: " + results[i].vicinity + '<br>' + '<br>';
           }
         }
       }
+      
+
+     
+
 
       function createMarker(place) {
         var placeLoc = place.geometry.location;
@@ -58,16 +77,43 @@
           map: map,
           position: place.geometry.location
         });
-
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.setContent(place.name);
+          console.log(place.name);
+          //console.log(place.getAddress());
+          console.log()
           infowindow.open(map, this);
         });
       }
+
     </script>
+
+
+    
   </head>
   <body>
     <div id="map"></div>
+
+    <h3 class="fonte"> searcHotel </h3>
+
+    
+   
+
+
+    <div class="card text-white bg-info mb-3" width="100%">
+        <div class="card-header" id="center">Os hotéis mais próximos de você são estes</div>
+        <div class="card-body">
+          <p id="listar" class="card-text"></p>
+        </div>
+    </div>
+
+
+
+        
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM4CujFeFMgBJR8QvO5vz7Qk1vviev0qU&libraries=places&callback=initMap" async defer></script>
+    <script async src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script asyc src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+       <script async src="js/main.js"></script>
   </body>
 </html>

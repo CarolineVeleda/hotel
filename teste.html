@@ -53,16 +53,19 @@
             lng: position.coords.longitude
           };
 
-          //infoWindow.setPosition(pos);
           console.log(pos.lat + " kkkkkkkkk");
           lat1 = pos.lat;
           lng1 = pos.lng;
           console.log(lat1);
           console.log(lng1);
-          //infoWindow.setContent('Location found.');
-          //map.setCenter(pos);
+          /* infoWindow.setPosition(pos);
+            console.log(pos);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos);*/
 
-          var pyrmont = { lat: lat1, lng: lng1 };
+            
+           
+          var pyrmont = { lat: -32.039769, lng: -52.088581};
 
           map = new google.maps.Map(document.getElementById('map'), {
             center: pyrmont,
@@ -97,6 +100,17 @@
 
 
 
+    
+
+        },
+          function () {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+      }
+
+
+    }
+
     function createMarker(place) {
       var placeLoc = place.geometry.location;
       var marker = new google.maps.Marker({
@@ -110,15 +124,6 @@
         console.log()
         infowindow.open(map, this);
       });
-    }
-
-        },
-          function () {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-      }
-
-
     }
   
 

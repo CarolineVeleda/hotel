@@ -30,102 +30,11 @@
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
           zoom: 6
-
-
-        
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
-
-           
-       
-            var atlantico = new google.maps.Marker({
-                position:{lat:-32.0311802,lng:-52.0961272},
-                map: map
-            });
-            
-            var swan = new google.maps.Marker({
-                position: {lat:-32.029021, lng:-52.099366},
-                map: map
-            });
-
-            var praiacassino = new google.maps.Marker({
-                position: {lat:-32.179522,lng:-52.1670597},
-                map: map
-            });
-
-            var ventosul = new google.maps.Marker({
-                position: {lat:-32.0395759,lng:-52.0973556},
-                map: map
-            });
-            
-            var costadoce = new google.maps.Marker({
-                position: {lat:-32.0489675,lng:-52.1475459},
-                map: map
-            });
-
-            var domlucas = new google.maps.Marker({
-                position: {lat:-32.190294,lng:-52.1637307},
-                map: map
-            });
-
-            var nelson = new google.maps.Marker({
-                position: {lat:-32.188679,lng:-52.1615031},
-                map: map
-            });
-
-            var liraapart = new google.maps.Marker({
-                position: {lat:-32.1821216,lng:-52.163402},
-                map: map
-            });
-
-            var vilamoura = new google.maps.Marker({
-                position: {lat:-32.0328672,lng:-52.1005346},
-                map: map
-            });
-
-            var almanara = new google.maps.Marker({
-                position: {lat:-32.0328672,lng:-52.1005346},
-                map: map
-            });
-            
-            var almanara = new google.maps.Marker({
-                position: {lat:-32.0328672,lng:-52.1005346},
-                map: map
-            });
-
-            var almanara = new google.maps.Marker({
-                position: {lat:-32.0328672,lng:-52.1005346},
-                map: map
-            });
-
-            var talfik = new google.maps.Marker({
-                position: {lat:-32.0312036,lng:-52.1001164},
-                map: map
-            });
-
-            var portorei = new google.maps.Marker({
-                position: {lat:-32.0368786,lng:-52.1072432},
-                map: map
-            });
-
-            var musleh = new google.maps.Marker({
-                position: {lat:-32.038552,lng:-52.1041533},
-                map: map
-            });
-
-            var arpini = new google.maps.Marker({
-                position: {lat:-32.038552,lng:-52.1129081},
-                map: map
-            });
-
-            var gaucho = new google.maps.Marker({
-                position: {lat:-32.0712294,lng:-52.1525623},
-                map: map
-            });           
-
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
               lat: position.coords.latitude,
@@ -133,6 +42,7 @@
             };
 
             infoWindow.setPosition(pos);
+            console.log(pos);
             infoWindow.setContent('Location found.');
             map.setCenter(pos);
           }, function() {
@@ -142,38 +52,12 @@
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
-
-        
-
-
       }
 
       
-
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-      }
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM4CujFeFMgBJR8QvO5vz7Qk1vviev0qU&callback=initMap">
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

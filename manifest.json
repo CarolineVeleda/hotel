@@ -4,9 +4,9 @@
   "theme_color": "#c0daee",
   "background_color": "#c3e1f9",
   "display": "fullscreen",
-  "orientation": "landscape",
+  "orientation": "portrait",
   "Scope": "/",
-  "start_url": "/",
+  "start_url": "https://carolineveleda.github.io/hotel/index.html",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",

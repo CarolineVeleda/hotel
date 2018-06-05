@@ -99,7 +99,7 @@
           vetor.push("<b>" + "Nome: " + "</b>" + results[i].name + "<br>" + "<b>" + "Endereço: " + "</b>" + results[i].vicinity + "<br>" + "<br>");
 
           localStorage.nomeHotel = vetor;
-          document.getElementById("listar").innerHTML = localStorage.nomeHotel;
+          
           //localStorage.adressHotel=["Endereço: " + results[i].vicinity];
           //document.getElementById("listar").innerHTML+= "Nome: " + results[i].name + '<br>' + "Endereço: " + results[i].vicinity + '<br>' + '<br>';
         }
@@ -107,7 +107,7 @@
     }
 
 
- 
+ document.getElementById("listar").innerHTML = localStorage.nomeHotel;
 
 var marker1 = new google.maps.Marker({
           position: pyrmont,

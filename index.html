@@ -5,6 +5,7 @@
   <title>Place searches</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
+  <link rel="manifest" href="https://carolineveleda.github.io/hotel/manifest.json">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
 
@@ -29,7 +30,11 @@
       text-align: center;
     }
 
-    .fonte {}
+
+    .display{
+      display: block;
+    }  
+
   </style>
   <script>
     // This example requires the Places library. Include the libraries=places
@@ -136,11 +141,14 @@
 <body>
   <div id="map"></div>
 
-  <h3 class="fonte"> searcHotel </h3>
+<br>
 
+<br>
 
-
-
+  <img src="logo.png" align="middle" class="display" width="200px" heigh="200px" alt="">
+ 
+  <br>
+ <br>
 
   <div class="card text-white bg-info mb-3" width="100%">
     <div class="card-header" id="center">Os hotéis mais próximos de você são estes</div>
@@ -150,7 +158,25 @@
   </div>
 
 
+  
 
+
+  <script async src="sw.js"></script>
+
+  <script>
+             //This is the "Offline copy of pages" service worker
+             //Add this below content to your HTML page, or add the js file to your page at the very top to register sercie worker
+             if (navigator.serviceWorker.controller) {
+               console.log('[PWA Builder] active service worker found, no need to register')
+             } else {
+               //Register the ServiceWorker
+               navigator.serviceWorker.register('sw.js', {
+                 scope: './'
+               }).then(function(reg) {
+                 console.log('Service worker has been registered for scope:'+ reg.scope);
+               });
+             }
+         </script>
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM4CujFeFMgBJR8QvO5vz7Qk1vviev0qU&libraries=places&callback=initMap"
     async defer></script>

@@ -67,11 +67,6 @@
           lat1 = pos.lat;
           lng1 = pos.lng;
 
-           
-           
-          /* infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            map.setCenter(pos);*/
             
            
           var pyrmont = { lat: lat1, lng: lng1};
@@ -94,8 +89,7 @@
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
           createMarker(results[i]);
-          //console.log(results[i]);
-          //console.log("Nome: " + results[i].name + "Endereço: " + results[i].vicinity);
+          
           vetor.push("<b>" + "Nome: " + "</b>" + results[i].name + "<br>" + "<b>" + "Endereço: " + "</b>" + results[i].vicinity + "<br>" + "<br>");
 
           localStorage.nomeHotel = vetor;
@@ -107,7 +101,7 @@
     }
 
 
- document.getElementById("listar").innerHTML = localStorage.nomeHotel;
+ 
 
 var marker1 = new google.maps.Marker({
           position: pyrmont,
@@ -122,7 +116,7 @@ var marker1 = new google.maps.Marker({
             handleLocationError(true, infoWindow, map.getCenter());
           });
       }
-
+      document.getElementById("listar").innerHTML = localStorage.nomeHotel;
 
     }
 

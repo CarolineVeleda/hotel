@@ -31,8 +31,14 @@
     }
 
 
-    .display{
-      display: block;
+    #display{
+      display:block;
+
+    }
+
+    .fonte{
+      font-family: Arial, sans-serif;
+      color:#87CEFA;
     }  
 
   </style>
@@ -58,20 +64,19 @@
             lng: position.coords.longitude
           };
 
-          console.log(pos.lat + " kkkkkkkkk");
           lat1 = pos.lat;
           lng1 = pos.lng;
-          console.log(lat1);
-          console.log(lng1);
+
+           
+           
           /* infoWindow.setPosition(pos);
-            console.log(pos);
             infoWindow.setContent('Location found.');
             map.setCenter(pos);*/
-
             
            
-          var pyrmont = { lat: -32.039769, lng: -52.088581};
+          var pyrmont = { lat: lat1, lng: lng1};
 
+          
           map = new google.maps.Map(document.getElementById('map'), {
             center: pyrmont,
             zoom: 15
@@ -102,9 +107,14 @@
     }
 
 
+ 
 
-
-
+var marker1 = new google.maps.Marker({
+          position: pyrmont,
+          map: map,
+          icon: 'marker.png',
+          title: 'Hello World!'
+          });
     
 
         },
@@ -145,11 +155,19 @@
 
 <br>
 
-  <img src="logo.png" align="middle" class="display" width="200px" heigh="200px" alt="">
  
-  <br>
- <br>
-
+  <div class="card text-center" id="display">
+      <img src="logo.png"  class="" width="160px" heigh="130px" alt="">  
+    <div class="card-body">
+      <h3 class="fonte">searcHotel</h3>
+      <br>
+      <p>Bem Vindo Viajante!</p> 
+      <p>Chegou por aqui e não sabe onde se hospedar? Não se preocupe, nós separamos os hotéis mais próximos de onde você está agora.</p>
+      <br>
+      <p>Basta olhar a lista abaixo :)</p>
+    </div>
+  </div>
+ 
   <div class="card text-white bg-info mb-3" width="100%">
     <div class="card-header" id="center">Os hotéis mais próximos de você são estes</div>
     <div class="card-body">
